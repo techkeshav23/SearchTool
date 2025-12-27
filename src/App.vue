@@ -3,37 +3,42 @@
     <!-- Header -->
     <header class="app-header">
       <div class="header-content">
-        <h1 class="app-title">
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="logo-icon">
-            <circle cx="11" cy="11" r="8"></circle>
-            <path d="M21 21l-4.35-4.35"></path>
-          </svg>
-          SearchTool
-        </h1>
+        <div class="header-left">
+          <h1 class="app-title">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="logo-icon">
+              <circle cx="11" cy="11" r="8"></circle>
+              <path d="M21 21l-4.35-4.35"></path>
+            </svg>
+            <span class="title-text">SearchTool</span>
+          </h1>
+        </div>
         
-        <!-- Dark mode toggle -->
-        <button 
-          class="theme-toggle"
-          @click="toggleDarkMode"
-          :aria-label="isDarkMode ? 'Switch to light mode' : 'Switch to dark mode'"
-        >
-          <Transition name="rotate" mode="out-in">
-            <svg v-if="isDarkMode" key="sun" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <circle cx="12" cy="12" r="5"></circle>
-              <line x1="12" y1="1" x2="12" y2="3"></line>
-              <line x1="12" y1="21" x2="12" y2="23"></line>
-              <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
-              <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
-              <line x1="1" y1="12" x2="3" y2="12"></line>
-              <line x1="21" y1="12" x2="23" y2="12"></line>
-              <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
-              <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
-            </svg>
-            <svg v-else key="moon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-              <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
-            </svg>
-          </Transition>
-        </button>
+        <div class="header-right">
+          <!-- Dark mode toggle -->
+          <button 
+            class="theme-toggle"
+            @click="toggleDarkMode"
+            :aria-label="isDarkMode ? 'Switch to light mode' : 'Switch to dark mode'"
+            :title="isDarkMode ? 'Light mode' : 'Dark mode'"
+          >
+            <Transition name="rotate" mode="out-in">
+              <svg v-if="isDarkMode" key="sun" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <circle cx="12" cy="12" r="5"></circle>
+                <line x1="12" y1="1" x2="12" y2="3"></line>
+                <line x1="12" y1="21" x2="12" y2="23"></line>
+                <line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line>
+                <line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line>
+                <line x1="1" y1="12" x2="3" y2="12"></line>
+                <line x1="21" y1="12" x2="23" y2="12"></line>
+                <line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line>
+                <line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line>
+              </svg>
+              <svg v-else key="moon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"></path>
+              </svg>
+            </Transition>
+          </button>
+        </div>
       </div>
     </header>
     
@@ -290,40 +295,40 @@ export default {
 <style>
 /* CSS Variables for theming */
 :root {
-  --primary-color: #6366f1;
-  --primary-hover: #4f46e5;
-  --primary-glow: rgba(99, 102, 241, 0.2);
-  --secondary-color: #8b5cf6;
-  --accent-color: #a78bfa;
+  --primary-color: #2d3748;
+  --primary-hover: #1a202c;
+  --primary-glow: rgba(45, 55, 72, 0.1);
+  --secondary-color: #4a5568;
+  --accent-color: #718096;
   
   --bg-primary: #ffffff;
-  --bg-secondary: linear-gradient(135deg, #f5f7fa 0%, #e4e8f0 100%);
-  --bg-tertiary: #f0f0f0;
+  --bg-secondary: #f7f7f7;
+  --bg-tertiary: #edf2f7;
   
-  --text-primary: #1e293b;
-  --text-secondary: #64748b;
-  --text-tertiary: #94a3b8;
-  --text-placeholder: #cbd5e1;
+  --text-primary: #1a202c;
+  --text-secondary: #4a5568;
+  --text-tertiary: #718096;
+  --text-placeholder: #a0aec0;
   
-  --input-bg: rgba(255, 255, 255, 0.8);
+  --input-bg: #ffffff;
   --input-bg-focus: #ffffff;
-  --input-border: rgba(0, 0, 0, 0.08);
-  --input-border-hover: rgba(0, 0, 0, 0.15);
+  --input-border: #e2e8f0;
+  --input-border-hover: #cbd5e0;
   
-  --card-bg: rgba(255, 255, 255, 0.9);
-  --card-border: rgba(0, 0, 0, 0.06);
-  --card-border-hover: rgba(99, 102, 241, 0.3);
-  --card-shadow: rgba(0, 0, 0, 0.04);
-  --card-shadow-hover: rgba(99, 102, 241, 0.15);
+  --card-bg: #ffffff;
+  --card-border: #e2e8f0;
+  --card-border-hover: #cbd5e0;
+  --card-shadow: rgba(0, 0, 0, 0.05);
+  --card-shadow-hover: rgba(0, 0, 0, 0.1);
   
-  --button-bg: #f1f5f9;
+  --button-bg: #edf2f7;
   --button-bg-hover: #e2e8f0;
   
-  --kbd-bg: #f1f5f9;
+  --kbd-bg: #edf2f7;
   --kbd-border: #e2e8f0;
   
-  --divider-color: rgba(0, 0, 0, 0.06);
-  --empty-icon-bg: linear-gradient(135deg, #f1f5f9 0%, #e2e8f0 100%);
+  --divider-color: #e2e8f0;
+  --empty-icon-bg: #edf2f7;
   
   --highlight-bg: #fef3c7;
   --highlight-text: #92400e;
@@ -334,40 +339,53 @@ export default {
   --success-color: #10b981;
   --error-color: #ef4444;
   
-  --glass-bg: rgba(255, 255, 255, 0.7);
-  --glass-border: rgba(255, 255, 255, 0.5);
+  --glass-bg: #ffffff;
+  --glass-border: #e2e8f0;
+  
+  /* Header styles for light mode */
+  --header-bg: #ffffff;
+  --header-border: #e2e8f0;
+  --header-shadow: rgba(0, 0, 0, 0.05);
+  --header-title: #1a202c;
+  --header-title-gradient: #1a202c;
+  --header-logo: #2d3748;
+  --header-logo-glow: transparent;
+  --header-toggle-bg: #edf2f7;
+  --header-toggle-border: #e2e8f0;
+  --header-toggle-hover: #e2e8f0;
+  --header-toggle-icon: #4a5568;
 }
 
 /* Dark mode variables */
 .dark-mode {
-  --bg-primary: #0f172a;
-  --bg-secondary: linear-gradient(135deg, #0f172a 0%, #1e1b4b 100%);
-  --bg-tertiary: #1e293b;
+  --bg-primary: #1a202c;
+  --bg-secondary: #171923;
+  --bg-tertiary: #2d3748;
   
-  --text-primary: #f1f5f9;
-  --text-secondary: #94a3b8;
-  --text-tertiary: #64748b;
-  --text-placeholder: #475569;
+  --text-primary: #f7fafc;
+  --text-secondary: #a0aec0;
+  --text-tertiary: #718096;
+  --text-placeholder: #4a5568;
   
-  --input-bg: rgba(30, 41, 59, 0.8);
-  --input-bg-focus: #1e293b;
-  --input-border: rgba(255, 255, 255, 0.08);
-  --input-border-hover: rgba(255, 255, 255, 0.15);
+  --input-bg: #2d3748;
+  --input-bg-focus: #2d3748;
+  --input-border: #4a5568;
+  --input-border-hover: #718096;
   
-  --card-bg: rgba(30, 41, 59, 0.8);
-  --card-border: rgba(255, 255, 255, 0.06);
-  --card-border-hover: rgba(139, 92, 246, 0.4);
+  --card-bg: #2d3748;
+  --card-border: #4a5568;
+  --card-border-hover: #718096;
   --card-shadow: rgba(0, 0, 0, 0.3);
-  --card-shadow-hover: rgba(139, 92, 246, 0.2);
+  --card-shadow-hover: rgba(0, 0, 0, 0.4);
   
-  --button-bg: #1e293b;
-  --button-bg-hover: #334155;
+  --button-bg: #4a5568;
+  --button-bg-hover: #718096;
   
-  --kbd-bg: #1e293b;
-  --kbd-border: #334155;
+  --kbd-bg: #4a5568;
+  --kbd-border: #718096;
   
-  --divider-color: rgba(255, 255, 255, 0.06);
-  --empty-icon-bg: linear-gradient(135deg, #1e293b 0%, #312e81 100%);
+  --divider-color: #4a5568;
+  --empty-icon-bg: #2d3748;
   
   --highlight-bg: rgba(251, 191, 36, 0.2);
   --highlight-text: #fbbf24;
@@ -375,8 +393,21 @@ export default {
   --warning-bg: rgba(251, 191, 36, 0.2);
   --warning-color: #fbbf24;
   
-  --glass-bg: rgba(15, 23, 42, 0.7);
-  --glass-border: rgba(255, 255, 255, 0.1);
+  --glass-bg: #2d3748;
+  --glass-border: #4a5568;
+  
+  /* Header styles for dark mode */
+  --header-bg: #1a202c;
+  --header-border: #4a5568;
+  --header-shadow: rgba(0, 0, 0, 0.3);
+  --header-title: #f7fafc;
+  --header-title-gradient: #f7fafc;
+  --header-logo: #f7fafc;
+  --header-logo-glow: transparent;
+  --header-toggle-bg: #4a5568;
+  --header-toggle-border: #718096;
+  --header-toggle-hover: #718096;
+  --header-toggle-icon: #f7fafc;
 }
 
 /* Global styles */
@@ -437,146 +468,131 @@ body {
   display: flex;
   flex-direction: column;
   background: var(--bg-secondary);
-  transition: background 0.4s ease;
+  transition: background 0.3s ease;
   position: relative;
-}
-
-/* Decorative background elements */
-.app::before {
-  content: '';
-  position: fixed;
-  top: -50%;
-  right: -50%;
-  width: 100%;
-  height: 100%;
-  background: radial-gradient(circle, var(--primary-glow) 0%, transparent 70%);
-  pointer-events: none;
-  z-index: 0;
-}
-
-.app::after {
-  content: '';
-  position: fixed;
-  bottom: -50%;
-  left: -50%;
-  width: 100%;
-  height: 100%;
-  background: radial-gradient(circle, rgba(139, 92, 246, 0.1) 0%, transparent 70%);
-  pointer-events: none;
-  z-index: 0;
+  overflow-x: hidden;
 }
 
 /* Header */
 .app-header {
-  background: var(--glass-bg);
-  backdrop-filter: blur(20px);
-  -webkit-backdrop-filter: blur(20px);
-  border-bottom: 1px solid var(--glass-border);
-  position: sticky;
+  background: var(--header-bg);
+  border-bottom: 1px solid var(--header-border);
+  position: fixed;
   top: 0;
-  z-index: 100;
-  transition: all 0.3s ease;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  box-shadow: 0 2px 20px var(--header-shadow);
+  transition: background 0.3s ease, box-shadow 0.3s ease;
 }
 
 .header-content {
-  max-width: 900px;
+  width: 100%;
+  max-width: 1400px;
   margin: 0 auto;
-  padding: 1rem 2rem;
+  padding: 0.875rem 2rem;
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
 
+.header-left {
+  display: flex;
+  align-items: center;
+}
+
+.header-right {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
 .app-title {
   display: flex;
   align-items: center;
-  gap: 0.75rem;
-  font-size: 1.5rem;
-  font-weight: 800;
-  background: linear-gradient(135deg, var(--primary-color) 0%, var(--secondary-color) 100%);
+  gap: 0.625rem;
+  font-size: 1.375rem;
+  font-weight: 700;
+  color: var(--header-title);
+  margin: 0;
+  letter-spacing: -0.01em;
+}
+
+.title-text {
+  background: var(--header-title-gradient);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  letter-spacing: -0.02em;
 }
 
 .logo-icon {
-  width: 32px;
-  height: 32px;
-  color: var(--primary-color);
-  filter: drop-shadow(0 2px 4px var(--primary-glow));
+  width: 28px;
+  height: 28px;
+  color: var(--header-logo);
+  transition: color 0.3s ease;
 }
 
 .theme-toggle {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 44px;
-  height: 44px;
+  width: 40px;
+  height: 40px;
   padding: 0;
-  background: var(--button-bg);
-  border: 1px solid var(--divider-color);
-  border-radius: 12px;
+  background: var(--header-toggle-bg);
+  border: 1px solid var(--header-toggle-border);
+  border-radius: 8px;
   cursor: pointer;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  position: relative;
-  overflow: hidden;
-}
-
-.theme-toggle::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-  opacity: 0;
-  transition: opacity 0.3s ease;
+  transition: all 0.3s ease;
 }
 
 .theme-toggle:hover {
-  transform: translateY(-2px);
-  box-shadow: 0 8px 20px var(--card-shadow-hover);
-}
-
-.theme-toggle:hover::before {
-  opacity: 0.1;
+  background: var(--header-toggle-hover);
 }
 
 .theme-toggle:active {
-  transform: translateY(0) scale(0.95);
+  transform: scale(0.95);
 }
 
 .theme-toggle svg {
   width: 20px;
   height: 20px;
-  color: var(--text-primary);
+  color: var(--header-toggle-icon);
   position: relative;
   z-index: 1;
+  transition: color 0.3s ease;
 }
 
 /* Main content */
 .app-main {
   flex: 1;
-  padding: 3rem 1.5rem;
+  padding: 3rem 2rem;
+  padding-top: calc(70px + 2rem); /* Account for fixed header height */
   position: relative;
   z-index: 1;
+  width: 100%;
 }
 
 .container {
-  max-width: 900px;
+  width: 100%;
+  max-width: 100%;
   margin: 0 auto;
+  padding: 0 2rem;
 }
 
 .search-section {
   margin-bottom: 2.5rem;
+  width: 100%;
 }
 
 .results-section {
+  width: 100%;
   background: var(--glass-bg);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
   border: 1px solid var(--glass-border);
   border-radius: 24px;
-  padding: 2rem;
+  padding: 2.5rem;
   box-shadow: 
     0 4px 6px -1px var(--card-shadow),
     0 10px 20px -5px var(--card-shadow),
@@ -636,12 +652,12 @@ body {
 }
 
 .toast.success {
-  background: linear-gradient(135deg, #10b981 0%, #059669 100%);
+  background: #10b981;
   color: white;
 }
 
 .toast.error {
-  background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+  background: #ef4444;
   color: white;
 }
 
@@ -688,25 +704,31 @@ body {
 /* Responsive */
 @media (max-width: 768px) {
   .header-content {
-    padding: 0.875rem 1.25rem;
+    padding: 0.75rem 1rem;
   }
   
   .app-title {
-    font-size: 1.25rem;
+    font-size: 1.125rem;
   }
   
   .logo-icon {
-    width: 26px;
-    height: 26px;
+    width: 24px;
+    height: 24px;
   }
   
   .theme-toggle {
-    width: 40px;
-    height: 40px;
+    width: 36px;
+    height: 36px;
+  }
+  
+  .theme-toggle svg {
+    width: 18px;
+    height: 18px;
   }
   
   .app-main {
     padding: 1.5rem 1rem;
+    padding-top: calc(56px + 1.5rem);
   }
   
   .results-section {

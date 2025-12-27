@@ -1,11 +1,9 @@
 {
   "name": "search-tool",
-  "version": "0.0.0",
+  "version": "1.0.0",
+  "description": "A modern, responsive search tool UI built with Vue.js - Saras Finance Assignment",
   "private": true,
   "type": "module",
-  "engines": {
-    "node": "^20.19.0 || >=22.12.0"
-  },
   "scripts": {
     "dev": "vite",
     "build": "vite build",

@@ -240,12 +240,13 @@ export default {
 
 <style scoped>
 .search-result-item {
+  width: 100%;
   background: var(--card-bg, rgba(255, 255, 255, 0.9));
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   border: 1px solid var(--card-border, rgba(0, 0, 0, 0.06));
   border-radius: 16px;
-  padding: 1.5rem;
+  padding: 1.75rem 2rem;
   cursor: pointer;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   animation: slideIn 0.5s cubic-bezier(0.4, 0, 0.2, 1) forwards;
@@ -262,7 +263,7 @@ export default {
   left: 0;
   right: 0;
   height: 3px;
-  background: linear-gradient(90deg, var(--primary-color, #6366f1), var(--secondary-color, #8b5cf6));
+  background: var(--primary-color, #2d3748);
   transform: scaleX(0);
   transform-origin: left;
   transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -461,14 +462,15 @@ export default {
 }
 
 .action-button.primary {
-  background: linear-gradient(135deg, var(--primary-color, #6366f1) 0%, var(--secondary-color, #8b5cf6) 100%);
+  background: var(--primary-color, #2d3748);
   color: white;
-  box-shadow: 0 4px 12px rgba(99, 102, 241, 0.3);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
 }
 
 .action-button.primary:hover {
   transform: translateY(-2px);
-  box-shadow: 0 8px 20px rgba(99, 102, 241, 0.4);
+  background: var(--primary-hover, #1a202c);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
 
 .action-button.primary:hover svg {
@@ -489,7 +491,7 @@ export default {
 
 /* Highlight styling */
 :deep(.highlight) {
-  background: linear-gradient(135deg, var(--highlight-bg, #fef3c7) 0%, #fde68a 100%);
+  background: var(--highlight-bg, #fef3c7);
   color: var(--highlight-text, #92400e);
   padding: 0.1rem 0.35rem;
   border-radius: 4px;

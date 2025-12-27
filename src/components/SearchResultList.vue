@@ -207,6 +207,7 @@ export default {
 .search-result-list {
   width: 100%;
   min-height: 300px;
+  max-width: 100%;
 }
 
 .results-header {
@@ -317,7 +318,8 @@ export default {
 .results-list {
   display: flex;
   flex-direction: column;
-  gap: 1rem;
+  gap: 1.25rem;
+  width: 100%;
 }
 
 /* Load more */
@@ -337,39 +339,19 @@ export default {
   padding: 0.875rem 2rem;
   font-size: 0.9rem;
   font-weight: 600;
-  color: var(--primary-color, #6366f1);
+  color: var(--primary-color, #2d3748);
   background: transparent;
-  border: 2px solid var(--primary-color, #6366f1);
-  border-radius: 12px;
+  border: 2px solid var(--primary-color, #2d3748);
+  border-radius: 10px;
   cursor: pointer;
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  position: relative;
-  overflow: hidden;
-}
-
-.load-more-button::before {
-  content: '';
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(135deg, var(--primary-color, #6366f1), var(--secondary-color, #8b5cf6));
-  opacity: 0;
-  transition: opacity 0.3s ease;
-}
-
-.load-more-button span,
-.load-more-button .loader-container {
-  position: relative;
-  z-index: 1;
+  transition: all 0.3s ease;
 }
 
 .load-more-button:hover:not(:disabled) {
   color: white;
-  transform: translateY(-3px);
-  box-shadow: 0 10px 20px rgba(99, 102, 241, 0.3);
-}
-
-.load-more-button:hover:not(:disabled)::before {
-  opacity: 1;
+  background: var(--primary-color, #2d3748);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
 .load-more-button:active:not(:disabled) {
@@ -391,23 +373,20 @@ export default {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(135deg, var(--primary-color, #6366f1), var(--secondary-color, #8b5cf6));
+  background: var(--primary-color, #2d3748);
   color: white;
   border: none;
-  border-radius: 16px;
+  border-radius: 12px;
   cursor: pointer;
-  box-shadow: 
-    0 10px 20px rgba(99, 102, 241, 0.3),
-    0 4px 6px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   z-index: 100;
 }
 
 .scroll-top-button:hover {
-  transform: translateY(-4px) scale(1.05);
-  box-shadow: 
-    0 15px 30px rgba(99, 102, 241, 0.4),
-    0 6px 10px rgba(0, 0, 0, 0.1);
+  transform: translateY(-4px);
+  background: var(--primary-hover, #1a202c);
+  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
 }
 
 .scroll-top-button:active {

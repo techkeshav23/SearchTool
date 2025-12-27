@@ -204,7 +204,7 @@ export default {
 <style scoped>
 .search-bar-container {
   width: 100%;
-  max-width: 700px;
+  max-width: 100%;
   margin: 0 auto;
 }
 
@@ -236,13 +236,9 @@ export default {
 }
 
 .search-input-wrapper.focused {
-  border-color: var(--primary-color, #6366f1);
+  border-color: var(--primary-color, #2d3748);
   background: var(--input-bg-focus, #fff);
-  transform: translateY(-2px);
-  box-shadow: 
-    0 0 0 4px var(--primary-glow, rgba(99, 102, 241, 0.2)),
-    0 20px 25px -5px rgba(0, 0, 0, 0.1),
-    0 10px 10px -5px rgba(0, 0, 0, 0.04);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
 }
 
 .search-icon {

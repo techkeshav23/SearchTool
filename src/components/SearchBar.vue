@@ -71,6 +71,14 @@
     <div class="keyboard-hint" v-if="showHint && !isFocused">
       <kbd>Ctrl</kbd> + <kbd>K</kbd> to search
     </div>
+    
+    <!-- Search guide hint -->
+    <p class="search-guide">
+      Try searching for <span class="suggestion" @click="handleSuggestionClick('Vue')">Vue</span>, 
+      <span class="suggestion" @click="handleSuggestionClick('CSS')">CSS</span>, 
+      <span class="suggestion" @click="handleSuggestionClick('API')">API</span>, or 
+      <span class="suggestion" @click="handleSuggestionClick('components')">components</span>
+    </p>
   </div>
 </template>
 
@@ -171,6 +179,16 @@ export default {
      * Used for keyboard shortcut
      */
     focus() {
+      this.$refs.searchInput.focus();
+    },
+    
+    /**
+     * Handle click on search suggestion
+     * @param {string} suggestion - The suggested search term
+     */
+    handleSuggestionClick(suggestion) {
+      this.$emit('update:modelValue', suggestion);
+      this.$emit('search', suggestion);
       this.$refs.searchInput.focus();
     }
   },
@@ -354,6 +372,28 @@ export default {
   background: var(--primary-color, #6366f1);
   color: white;
   border-color: var(--primary-color, #6366f1);
+}
+
+.search-guide {
+  text-align: center;
+  margin-top: 0.75rem;
+  font-size: 0.85rem;
+  color: var(--text-tertiary, #94a3b8);
+  animation: fadeIn 0.5s ease 0.3s both;
+}
+
+.search-guide .suggestion {
+  color: var(--primary-color, #6366f1);
+  font-weight: 500;
+  cursor: pointer;
+  padding: 0.15rem 0.4rem;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+}
+
+.search-guide .suggestion:hover {
+  background: var(--primary-color, #6366f1);
+  color: white;
 }
 
 /* Transitions */

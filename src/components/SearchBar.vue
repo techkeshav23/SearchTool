@@ -67,11 +67,6 @@
       </Transition>
     </div>
     
-    <!-- Keyboard hint -->
-    <div class="keyboard-hint" v-if="showHint && !isFocused">
-      <kbd>Ctrl</kbd> + <kbd>K</kbd> to search
-    </div>
-    
     <!-- Search guide hint -->
     <p class="search-guide">
       Try searching for <span class="suggestion" @click="handleSuggestionClick('Vue')">Vue</span>, 
@@ -192,26 +187,7 @@ export default {
       this.$refs.searchInput.focus();
     }
   },
-  mounted() {
-    // Global keyboard shortcut: Ctrl+K to focus search
-    const handleKeydown = (event) => {
-      if ((event.ctrlKey || event.metaKey) && event.key === 'k') {
-        event.preventDefault();
-        this.focus();
-      }
-    };
-    
-    window.addEventListener('keydown', handleKeydown);
-    
-    // Cleanup on unmount
-    this.$options.cleanup = () => {
-      window.removeEventListener('keydown', handleKeydown);
-    };
-  },
   beforeUnmount() {
-    if (this.$options.cleanup) {
-      this.$options.cleanup();
-    }
     if (this.debounceTimer) {
       clearTimeout(this.debounceTimer);
     }
@@ -326,52 +302,6 @@ export default {
   height: 14px;
   color: var(--text-secondary, #64748b);
   transition: color 0.2s ease;
-}
-
-.keyboard-hint {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.35rem;
-  margin-top: 1rem;
-  font-size: 0.8rem;
-  color: var(--text-tertiary, #94a3b8);
-  animation: fadeIn 0.5s ease 0.2s both;
-}
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(-5px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.keyboard-hint kbd {
-  display: inline-flex;
-  align-items: center;
-  justify-content: center;
-  padding: 0.25rem 0.5rem;
-  min-width: 24px;
-  font-size: 0.7rem;
-  font-weight: 600;
-  font-family: inherit;
-  background: var(--kbd-bg, #f1f5f9);
-  border: 1px solid var(--kbd-border, #e2e8f0);
-  border-radius: 6px;
-  box-shadow: 
-    0 1px 2px rgba(0, 0, 0, 0.05),
-    inset 0 -1px 0 rgba(0, 0, 0, 0.1);
-  transition: all 0.2s ease;
-}
-
-.keyboard-hint:hover kbd {
-  background: var(--primary-color, #6366f1);
-  color: white;
-  border-color: var(--primary-color, #6366f1);
 }
 
 .search-guide {

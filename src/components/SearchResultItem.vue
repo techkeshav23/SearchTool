@@ -391,7 +391,7 @@ export default {
 }
 
 .search-result-item:hover .expand-indicator {
-  background: var(--primary-color, #6366f1);
+  background: var(--primary-button-bg, #6366f1);
 }
 
 .chevron-icon {
@@ -402,7 +402,7 @@ export default {
 }
 
 .search-result-item:hover .chevron-icon {
-  color: white;
+  color: var(--primary-button-text, white);
 }
 
 .chevron-icon.rotated {
@@ -462,14 +462,14 @@ export default {
 }
 
 .action-button.primary {
-  background: var(--primary-color, #2d3748);
-  color: white;
+  background: var(--primary-button-bg, #2d3748);
+  color: var(--primary-button-text, white);
   box-shadow: 0 2px 8px rgba(0, 0, 0, 0.15);
 }
 
 .action-button.primary:hover {
   transform: translateY(-2px);
-  background: var(--primary-hover, #1a202c);
+  background: var(--primary-button-hover, #1a202c);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
 

@@ -15,7 +15,6 @@ A modern, responsive search tool UI built with Vue.js. This application demonstr
 
 ### UX Enhancements
 - Loading spinner during API calls
-- Keyboard shortcut (Ctrl+K) to focus search
 - Toast notifications for user actions
 - Scroll-to-top button
 - Search term highlighting in results
@@ -99,45 +98,22 @@ npm run preview
 
 ## 📈 Scaling Considerations
 
-### For Larger Applications
+For a detailed description of how to scale this solution for larger applications and improve its performance, see **[SCALING.md](./SCALING.md)**.
 
-1. **State Management**: Implement Vuex or Pinia for complex state
-   - Centralized store for search history, user preferences, saved items
-   - Actions for API calls with proper error handling
+### Quick Overview
 
-2. **API Layer Improvements**:
-   - Implement request caching with cache invalidation
-   - Use service workers for offline support
-   - Add request cancellation for outdated searches
+**For Larger Applications:**
+- State Management with Vuex/Pinia
+- API layer improvements (caching, request cancellation, service workers)
+- Virtual scrolling for large result sets
+- Code splitting and lazy loading
+- Comprehensive testing strategy
 
-3. **Virtual Scrolling**: For thousands of results
-   - Implement vue-virtual-scroller for efficient DOM rendering
-   - Render only visible items in the viewport
-
-4. **Code Splitting**: 
-   - Lazy load components not needed on initial render
-   - Route-based code splitting if adding multiple pages
-
-5. **Testing**:
-   - Unit tests with Vitest for component logic
-   - E2E tests with Cypress or Playwright
-   - Visual regression testing
-
-### Performance Improvements
-
-1. **Search Optimizations**:
-   - Implement fuzzy search with Fuse.js
-   - Add search suggestions/autocomplete
-   - Recent searches history with localStorage
-
-2. **Caching Strategy**:
-   - Cache API responses in memory or IndexedDB
-   - Implement stale-while-revalidate pattern
-
-3. **Bundle Optimization**:
-   - Tree shaking unused code
-   - Dynamic imports for large dependencies
-   - Image optimization and lazy loading
+**Performance Improvements:**
+- Fuzzy search with Fuse.js
+- In-memory and IndexedDB caching
+- Bundle optimization and tree shaking
+- Rendering optimizations (v-once, v-memo, computed properties)
 
 ## 🔧 API Integration
 

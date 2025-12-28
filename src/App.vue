@@ -324,6 +324,11 @@ export default {
   --button-bg: #edf2f7;
   --button-bg-hover: #e2e8f0;
   
+  /* Primary button in light mode */
+  --primary-button-bg: #2d3748;
+  --primary-button-text: #ffffff;
+  --primary-button-hover: #1a202c;
+  
   --kbd-bg: #edf2f7;
   --kbd-border: #e2e8f0;
   
@@ -358,6 +363,12 @@ export default {
 
 /* Dark mode variables */
 .dark-mode {
+  --primary-color: #f7fafc;
+  --primary-hover: #ffffff;
+  --primary-glow: rgba(247, 250, 252, 0.15);
+  --secondary-color: #e2e8f0;
+  --accent-color: #cbd5e0;
+  
   --bg-primary: #1a202c;
   --bg-secondary: #171923;
   --bg-tertiary: #2d3748;
@@ -380,6 +391,11 @@ export default {
   
   --button-bg: #4a5568;
   --button-bg-hover: #718096;
+  
+  /* Primary button in dark mode - use contrasting colors */
+  --primary-button-bg: #f7fafc;
+  --primary-button-text: #1a202c;
+  --primary-button-hover: #e2e8f0;
   
   --kbd-bg: #4a5568;
   --kbd-border: #718096;
